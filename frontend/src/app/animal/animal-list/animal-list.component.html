@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>Liste des animaux</h2>
+   
+
+  
+    @if (loading) {
+      <p>Chargement...</p>
+    } @else {
+      @if (error) {
+        <p class="error">{{ error }}</p>
+      } @else {
+        <table>
+          <thead>
+            <tr>
+
+              <th>ID</th>
+              <th>Nom commun</th>
+              <th>Nom savant</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (animal of animals(); track $index) {
+              <tr>
+                <td>{{ animal.id }}</td>
+                <td>{{ animal.nom_commun }}</td>
+                <td>{{ animal.nom_savant }}</td>
+                <td>
+                  <a [routerLink]="['/animals', animal.id]">Voir</a> |
+                  <a [routerLink]="['/animals/edit', animal.id]">Modifier</a> |
+                  <button (click)="delete(animal.id!)">Supprimer</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+    }
+  
+    <br />
+    <a [routerLink]="['/animals/add']">Ajouter un nouvel animal</a>
+  </div>
+  

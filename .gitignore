@@ -1,0 +1,20 @@
+# Secrets
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Symfony
+backend/var/
+backend/vendor/
+backend/.env.local.php
+
+# Angular / Node
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+node_modules/
+
+# Divers
+.DS_Store
+*.log

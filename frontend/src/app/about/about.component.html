@@ -1,0 +1,10 @@
+<div class="about-container">
+    <h1>À propos de l'application</h1>
+    <p>{{ description() }}</p>
+  
+    <h2>Concepteurs de l'application</h2>
+    <ul>
+       @for (creator of creators(); track $index){<li> {{ creator }} </li>}
+    </ul>
+  </div>
+  

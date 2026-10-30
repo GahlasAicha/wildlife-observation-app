@@ -1,0 +1,40 @@
+<div class="container">
+    <h2>{{ isEditMode ? 'Modifier l\'observation' : 'Ajouter une observation' }}</h2>
+  
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <ul>
+        <li>
+          <label>Date et Heure :</label>
+          <input formControlName="date_heure" required />
+        </li>
+        <li>
+          <label>Latitude :</label>
+          <input formControlName="latitude" required />
+        </li>
+        <li>
+          <label>Longitude :</label>
+          <input formControlName="longitude" />
+        </li>
+        <li>
+          <label>Animal observé :</label>
+          <input formControlName="animal" />
+        </li>
+        <li>
+          <label>Description :</label>
+          <input formControlName="description" />
+        </li>
+       
+      </ul>
+  
+      
+      <button type="submit" [disabled]="form.invalid">
+        {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
+      </button>
+      
+    </form>
+  
+    <br />
+    <a [routerLink]="['/observation']">Retour à la liste</a>
+  </div>
+  

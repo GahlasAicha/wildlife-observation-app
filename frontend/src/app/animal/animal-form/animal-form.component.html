@@ -1,0 +1,59 @@
+<div class="container">
+    <h2>{{ isEditMode ? 'Modifier un animal' : 'Ajouter un animal' }}</h2>
+  
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <ul>
+        <li>
+          <label>Nom commun :</label>
+          <input formControlName="nom_commun" required />
+        </li>
+        <li>
+          <label>Nom savant :</label>
+          <input formControlName="nom_savant" required />
+        </li>
+        <li>
+          <label>Embranchement :</label>
+          <input formControlName="embranchement" />
+        </li>
+        <li>
+          <label>Classe :</label>
+          <input formControlName="classe" />
+        </li>
+        <li>
+          <label>Ordre :</label>
+          <input formControlName="ordre" />
+        </li>
+        <li>
+          <label>Sous-ordre :</label>
+          <input formControlName="sous_ordre" />
+        </li>
+        <li>
+          <label>Famille :</label>
+          <input formControlName="famille" />
+        </li>
+        <li>
+          <label>Genre :</label>
+          <input formControlName="genre" />
+        </li>
+        <li>
+          <label>Statut IUCN :</label>
+          <input formControlName="iucn" />
+        </li>
+        <li>
+          <label>Description :</label>
+          <textarea formControlName="description"></textarea>
+        </li>
+      </ul>
+  
+      <!-- Bouton de soumission avec texte dynamique -->
+      <button type="submit" [disabled]="form.invalid">
+        {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
+      </button>
+      
+    </form>
+  
+    <br />
+    <a [routerLink]="['/animals']">Retour à la liste</a>
+  </div>
+  

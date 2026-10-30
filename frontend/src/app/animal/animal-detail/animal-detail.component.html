@@ -1,0 +1,73 @@
+<div class="container">
+    <h2>Détails de l'animal</h2>
+  
+    <!-- Affichage du message de chargement -->
+    @if (loading) {
+      <div>
+        <p>Chargement...</p>
+      </div>
+    }
+  
+    <!-- Affichage des erreurs s'il y en a -->
+    @if (error) {
+      <div class="error">
+        <p>{{ error }}</p>
+      </div>
+    }
+  
+    <!-- Affichage des détails de l'animal -->
+    @if (!loading && !error && animal) {
+      <div>
+        <table class="table">
+          <tr>
+            <th>ID</th>
+            <td>{{ animal.id }}</td>
+          </tr>
+          <tr>
+            <th>Nom commun</th>
+            <td>{{ animal.nom_commun }}</td>
+          </tr>
+          <tr>
+            <th>Nom scientifique</th>
+            <td>{{ animal.nom_savant }}</td>
+          </tr>
+          <tr>
+            <th>Embranchement</th>
+            <td>{{ animal.embranchement }}</td>
+          </tr>
+          <tr>
+            <th>Classe</th>
+            <td>{{ animal.classe }}</td>
+          </tr>
+          <tr>
+            <th>Ordre</th>
+            <td>{{ animal.ordre }}</td>
+          </tr>
+          <tr>
+            <th>Sous-ordre</th>
+            <td>{{ animal.sous_ordre }}</td>
+          </tr>
+          <tr>
+            <th>Famille</th>
+            <td>{{ animal.famille }}</td>
+          </tr>
+          <tr>
+            <th>Genre</th>
+            <td>{{ animal.genre }}</td>
+          </tr>
+          <tr>
+            <th>Statut IUCN</th>
+            <td>{{ animal.iucn }}</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td>{{ animal.description }}</td>
+          </tr>
+        </table>
+  
+        <!-- Bouton pour revenir à la liste des animaux -->
+        <button (click)="goBack()">Retour à la liste</button>
+      </div>
+    }
+  </div>
+  

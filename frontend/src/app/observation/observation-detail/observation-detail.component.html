@@ -1,0 +1,50 @@
+<div class="container">
+    <h2>Détails de l'Observation</h2>
+  
+    @if (loading) {
+      <div>
+        <p>Chargement...</p>
+      </div>
+    }
+  
+    
+    @if (error) {
+      <div class="error">
+        <p>{{ error }}</p>
+      </div>
+    }
+  
+
+    @if (!loading && !error && observation) {
+      <div>
+        <table class="table">
+          <tr>
+            <th>ID</th>
+            <td>{{ observation.id }}</td>
+          </tr>
+          <tr>
+            <th>Date et Heure</th>
+            <td>{{ observation.date_heure }}</td>
+          </tr>
+          <tr>
+            <th>Latitude</th>
+            <td>{{ observation.latitude }}</td>
+          </tr>
+          <tr>
+            <th>longitude</th>
+            <td>{{ observation.longitude }}</td>
+          </tr>
+          
+          <tr>
+            <th>Description</th>
+            <td>{{ observation.description }}</td>
+          </tr>
+          
+        </table>
+  
+        
+        <button (click)="goBack()">Retour à la liste</button>
+      </div>
+    }
+  </div>
+  

@@ -1,0 +1,53 @@
+<div class="container">
+    <h2>Liste des Observations</h2>
+   
+
+  
+    @if (loading) {
+      <p>Chargement...</p>
+    } @else {
+      @if (error) {
+        <p class="error">{{ error }}</p>
+      } @else {
+        <table>
+          <thead>
+            <tr>
+
+              <th>ID</th>
+              <th>Date et Heure</th>
+              <th>Longitude</th>
+              <th>Latitude</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            @for (observation of observations(); track $index) {
+              <tr>
+                <td>{{ observation.id }}</td>
+                <td>{{ observation.date_heure }}</td>
+                <td>{{ observation.latitude }}</td>
+                <td>{{ observation.longitude }}</td>
+
+
+
+                
+
+
+
+
+                <td>
+                  <a [routerLink]="['/observation', observation.id]">Voir</a> |
+                  <a [routerLink]="['/observation/edit', observation.id]">Modifier</a> |
+                  <button (click)="delete(observation.id!)">Supprimer</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+    }
+  
+    <br />
+    <a [routerLink]="['/observation/add']">Ajouter une Nouvelle Observation</a>
+  </div>
+  
